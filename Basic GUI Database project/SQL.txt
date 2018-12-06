@@ -1,0 +1,77 @@
+1. login (terminal/ command prompt)
+	mysql -u root -p
+
+2. List of databases
+	show databases;
+
+3. create our own database
+	create database database_name;
+	ex: create database cse2015sec3fall18;
+
+4. Using specific database
+	use database_name;
+	ex: use cse2015sec3fall18;
+
+5. delete database
+	drop database database_name;
+	ex: drop database cse2015sec3fall18;
+
+6. List of Tables
+	show tables;
+
+7. Create Table
+	create table table_name(col1_name datatype(max range)[attributes], col2_name datatype(max range)[attributes], ...);
+	ex: create table student(id int(13), name varchar(100), address varchar(100));
+	ex: create table student(id int(13) primary key, name varchar(100), address varchar(100));
+
+8. Table describe
+	desc table_name;
+	ex: desc student;
+
+9. Table delete
+	drop table table_name;
+	ex: drop table student;
+
+10. Select Query (READ Command)
+	ex:
+		select * from student;
+		select name, address from student;
+		select * from student where id = 5;
+		select * from student where id between 4 and 6 order by name desc;
+		select * from student where id between 4 and 6 order by name;
+ 		select * from student where id in(4,5,6);
+
+11. Insert Query (New Data Entry)
+	ex:
+		insert into table_name values(.. , .. , ..);
+		insert into student values(1,'ashiq','banani');
+
+12. Update Query (Modify Data)
+	ex:
+		update table_name set col1_name = new value ...;
+		update student set address = 'Banani';
+		update student set address = 'Banani' where id = 1;
+
+13. Delete Query (Deleting a Data)
+	ex:
+		delete from student;
+		delete from student where id = 7;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
