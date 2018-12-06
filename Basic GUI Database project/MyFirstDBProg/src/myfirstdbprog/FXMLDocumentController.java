@@ -70,6 +70,7 @@ public class FXMLDocumentController implements Initializable
             if(stm.executeUpdate(sql) == 1) status.setText("Success ...");
             else status.setText("Operation Faild ...");            
          
+            clearForm();
             stm.close();
             con.close();
         }
@@ -82,10 +83,7 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private void doClear(ActionEvent event) 
     {
-        tid.setText("");
-        tname.setText("");
-        taddress.setText("");
-        status.setText("");
+        clearForm();
     }
 
     @FXML
@@ -144,7 +142,7 @@ public class FXMLDocumentController implements Initializable
          
             //rs.close();
             stm.close();
-            //con.close();
+            con.close();
         }
         catch(Exception err)
         {
@@ -189,5 +187,12 @@ public class FXMLDocumentController implements Initializable
         {
             status.setText(""+err);
         }    
+    }
+
+    private void clearForm() {
+        tid.clear();
+        tname.clear();
+        taddress.clear();
+        status.setText("");
     }
 }

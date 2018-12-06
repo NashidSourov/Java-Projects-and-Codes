@@ -6,11 +6,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" mouseTransparent="true" prefHeight="303.0" prefWidth="320" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myfirstdbprog.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="303.0" prefWidth="320" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myfirstdbprog.FXMLDocumentController">
    <children>
-      <Label layoutX="22.0" layoutY="21.0" text="ID" />
-      <Label layoutX="22.0" layoutY="52.0" text="Name" />
-      <Label layoutX="24.0" layoutY="85.0" text="Address" />
+      <Label layoutX="23.0" layoutY="20.0" text="ID" />
+      <Label layoutX="22.0" layoutY="51.0" text="Name" />
+      <Label layoutX="23.0" layoutY="96.0" text="Address" />
       <TextField fx:id="tid" layoutX="104.0" layoutY="16.0" prefHeight="17.0" prefWidth="171.0" />
       <TextField fx:id="tname" layoutX="104.0" layoutY="47.0" prefHeight="17.0" prefWidth="171.0" />
       <TextArea fx:id="taddress" layoutX="104.0" layoutY="86.0" prefHeight="128.0" prefWidth="171.0" />
