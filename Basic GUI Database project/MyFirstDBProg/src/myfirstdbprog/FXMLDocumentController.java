@@ -194,7 +194,7 @@ public class FXMLDocumentController implements Initializable
             else status.setText("Operation Faild ...");            
          
             stm.close();
-            con.close();
+            //con.close();
         }
         catch(Exception err)
         {
