@@ -19,7 +19,7 @@ import javafx.scene.control.TextField;
 
 public class FXMLDocumentController implements Initializable 
 {  
-    //final String PASS = "";  
+    final String PASS = "";  
     @FXML
     private TextField tid;
     @FXML
@@ -113,7 +113,7 @@ public class FXMLDocumentController implements Initializable
          
             rs.close();
             stm.close();
-            con.close();
+         //   con.close();
         }
         catch(Exception err)
         {
@@ -174,7 +174,7 @@ public class FXMLDocumentController implements Initializable
 
     @FXML
     private void doUpdate(ActionEvent event) {
-        String id = tid.getText().trim();
+        int id = Integer.parseInt(tid.getText().trim());
         String name = tname.getText().trim();
         String address = taddress.getText().trim();
         
@@ -189,6 +189,8 @@ public class FXMLDocumentController implements Initializable
             if (con == null) {
                 con = getConnection();
             }
+            
+            stm = con.createStatement();
             
             if(stm.executeUpdate(sql) == 1) status.setText("Success ...");
             else status.setText("Operation Faild ...");            
