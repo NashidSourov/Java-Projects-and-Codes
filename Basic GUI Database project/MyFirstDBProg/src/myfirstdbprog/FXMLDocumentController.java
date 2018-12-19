@@ -14,11 +14,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+
   
 
 public class FXMLDocumentController implements Initializable 
 {  
-    final String PASS = "" ;  
+    final String PASS = "";  
     @FXML
     private TextField tid;
     @FXML
@@ -33,6 +34,8 @@ public class FXMLDocumentController implements Initializable
     private Label status;
     @FXML
     private Button bshow;
+    
+    
     
     Connection con = null;
     Statement stm;
@@ -64,7 +67,7 @@ public class FXMLDocumentController implements Initializable
         try
         {
               
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/home?user=root&password=" + PASS);
+            //con = DriverManager.getConnection(url,username,password);
             stm = con.createStatement();            
             
             if(stm.executeUpdate(sql) == 1) status.setText("Success ...");
@@ -72,7 +75,7 @@ public class FXMLDocumentController implements Initializable
          
             clearForm();
             stm.close();
-            con.close();
+            //con.close();
         }
         catch(Exception err)
         {
@@ -96,7 +99,9 @@ public class FXMLDocumentController implements Initializable
         try
         {
             //Class.forName("com.mysql.jdbc.Driver");           
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/home?user=root&password=" + PASS);
+            if(con == null)
+                con = getConnection();
+            
             stm = con.createStatement();            
             
             rs = stm.executeQuery(sql);
@@ -142,7 +147,7 @@ public class FXMLDocumentController implements Initializable
          
             //rs.close();
             stm.close();
-            con.close();
+           // con.close();
         }
         catch(Exception err)
         {
@@ -151,9 +156,14 @@ public class FXMLDocumentController implements Initializable
     }
     
     private Connection getConnection(){
+        final String username="nash";
+        final String password="Nash@123";
+        final String dbname="home";
+        final String dbhost="127.0.0.1";
+        final String url="jdbc:mysql://"+dbhost+"/"+dbname;
         
         try{
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/home?user=root&password=" + PASS);
+            con = DriverManager.getConnection(url,username,password);
             
         }catch (SQLException sqle){
             System.out.println(sqle);
@@ -174,8 +184,11 @@ public class FXMLDocumentController implements Initializable
         try
         {
               
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/home?user=root&password=" + PASS);
-            stm = con.createStatement();            
+//            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/home?user=root&password=" + PASS);
+//            stm = con.createStatement();   
+            if (con == null) {
+                con = getConnection();
+            }
             
             if(stm.executeUpdate(sql) == 1) status.setText("Success ...");
             else status.setText("Operation Faild ...");            
