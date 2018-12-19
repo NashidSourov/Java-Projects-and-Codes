@@ -19,7 +19,7 @@ import javafx.scene.control.TextField;
 
 public class FXMLDocumentController implements Initializable 
 {  
-    final String PASS = "";  
+    //final String PASS = "";  
     @FXML
     private TextField tid;
     @FXML
